@@ -1,0 +1,400 @@
+@charset "UTF-8";
+/* THEME UTILS */
+@media (min-width: 782px) {
+  .mobile-only {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.current-menu-item {
+  position: relative;
+}
+.current-menu-item :before {
+  content: "•"; /* Unicode dot */
+  position: absolute;
+  bottom: -20px; /* Position it below the parent element */
+  left: 50%; /* Position it in the center horizontally */
+  transform: translateX(-10%); /* Center it precisely */
+  font-size: 24px; /* Adjust the size as needed */
+  opacity: 1; /* Adjust the opacity as needed */
+}
+@media (max-width: 600px) {
+  .current-menu-item :before {
+    display: none;
+  }
+}
+
+.never-current :before {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .wp-block-navigation__responsive-dialog {
+    margin-top: 40px !important;
+  }
+}
+
+.main-nav span {
+  transition: 0.3s;
+}
+.main-nav span:hover {
+  color: var(--wp--preset--color--davy-gray) !important;
+}
+
+@media (max-width: 600px) {
+  .homepage-photo {
+    float: unset !important;
+    margin-block-start: 0 !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+    padding-top: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+  .homepage-photo img {
+    display: block;
+    max-width: 100%;
+    margin: 1rem auto 0;
+  }
+}
+
+.wp-block-button a {
+  transition: 0.3s;
+  box-sizing: content-box;
+  border: 1px solid var(--wp--preset--color--blood-red);
+}
+.wp-block-button a:hover {
+  background-color: var(--wp--preset--color--white) !important;
+  color: var(--wp--preset--color--blood-red) !important;
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.has-animation.has-been-revealed .fade-in-left {
+  animation-name: fade-in-left;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.has-animation.has-been-revealed .fade-in-right {
+  animation-name: fade-in-right;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.has-animation.has-been-revealed .fade-in-up {
+  animation-name: fade-in-up;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes services-fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.has-animation.has-been-revealed .fade-in-down {
+  animation-name: fade-in-down;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+.has-animation.has-been-revealed .reveal-in {
+  animation: reveal 3s cubic-bezier(0.77, 0, 0.175, 1);
+  animation-fill-mode: both;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes zoom {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.has-image-animation.has-been-revealed {
+  overflow: hidden;
+}
+.has-image-animation.has-been-revealed figure {
+  margin-bottom: 0;
+}
+.has-image-animation.has-been-revealed img {
+  animation: zoom 1.5s ease-in-out;
+  animation-fill-mode: both;
+  margin-bottom: 0;
+}
+
+.delayed-image-animation img {
+  animation-duration: 3s !important;
+  animation-fill-mode: both;
+}
+
+@keyframes draw-in-line {
+  from {
+    width: 1%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes draw-in-line-80 {
+  from {
+    width: 80%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.has-animation.has-been-revealed .animated-line {
+  animation: draw-in-line 1s ease-in-out;
+  animation-fill-mode: both;
+}
+
+.has-animation.has-been-revealed .animated-line-80 {
+  animation: draw-in-line-80 1s ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes button-gradient {
+  0% {
+    background: linear-gradient(to left, red 50%, blue 50%) right;
+    background-size: 200% 100%;
+  }
+  100% {
+    background: blue;
+  }
+}
+/* ANIMATION UTILITIES */
+.animation-delay-500ms {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1s {
+  animation-delay: 1s;
+}
+
+.animation-delay-1p5s {
+  animation-delay: 1.5s;
+}
+
+/* BASE */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg, iframe {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* LAYOUT */
+.video-modal {
+  border: 0;
+  outline: var(--wp--preset--color--wave);
+  padding: 0;
+  background: transparent;
+  overflow: visible;
+}
+.video-modal::backdrop {
+  background: rgba(101, 95, 88, 0.8);
+}
+.video-modal iframe {
+  aspect-ratio: 32/17;
+  display: block;
+  margin: 0;
+  max-width: 95vw;
+  max-height: 70vh;
+  min-width: 60vw;
+  user-select: none;
+}
+.video-modal:before {
+  content: "✕";
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  color: var(--wp--preset--color--linen);
+  cursor: pointer;
+}
+
+/* COMPONENTS ELEMENTS */
+a {
+  transition: 0.3s;
+}
+
+.wp-block-button {
+  transition: 0.3s;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+}
+
+.wp-block-button.is-style-fill:hover {
+  border: 2px solid;
+}
+
+.wp-block-button.is-style-outline a:hover {
+  background: var(--wp--custom--color--contrast) !important;
+}
+
+.is-style-hover-light a,
+.is-style-hover-dark a,
+.wp-block-button.is-style-play-button-hl a,
+.wp-block-button.is-style-play-button-hd a {
+  border: 2px solid;
+  transition: 0.3s;
+}
+
+.is-style-hover-light.is-style-hover-light:hover a,
+.is-style-play-button-hl.is-style-play-button-hl a:hover {
+  background: var(--wp--custom--color--base);
+  color: var(--wp--custom--color--contrast);
+  border-color: currentColor;
+}
+
+.is-style-hover-dark.is-style-hover-dark:hover a,
+.is-style-play-button-hd.is-style-play-button-hd a:hover {
+  background: var(--wp--custom--color--contrast);
+  color: var(--wp--custom--color--base);
+}
+
+.is-style-plus-button {
+  position: relative;
+}
+.is-style-plus-button a {
+  background-color: transparent !important;
+  color: var(--wp--custom--color--base) !important;
+}
+.is-style-plus-button a {
+  width: fit-content;
+  padding-left: 0;
+  padding-right: 0;
+}
+.is-style-plus-button a:after {
+  content: "+"/"";
+  speak: none;
+  font-size: inherit;
+  margin-left: 4.8px;
+}
+.is-style-plus-button:before {
+  content: "";
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  position: absolute;
+  bottom: 0;
+  transition: width 0.3s;
+}
+.is-style-plus-button:hover:before {
+  width: 100%;
+}
+
+.wp-block-button.is-style-play-button-hl a {
+  position: relative;
+}
+.wp-block-button.is-style-play-button-hl a:after {
+  content: "";
+  background-image: url("/wp-content/themes/pds-blocks/assets/play-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 100%;
+  display: inline-block;
+  margin-left: 0.5rem;
+  width: 20px;
+  height: 18px;
+  transition: filter 0.3s;
+  filter: invert(100%) sepia(5%) saturate(379%) hue-rotate(248deg) brightness(114%) contrast(100%);
+}
+.wp-block-button.is-style-play-button-hl a:after:hover:after {
+  filter: invert(21%) sepia(14%) saturate(597%) hue-rotate(155deg) brightness(91%) contrast(84%);
+}
+
+.wp-block-button.is-style-play-button-hd a {
+  position: relative;
+}
+.wp-block-button.is-style-play-button-hd a:after {
+  content: "";
+  background-image: url("/wp-content/themes/pds-blocks/assets/play-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-size: 100%;
+  display: inline-block;
+  margin-left: 0.5rem;
+  width: 20px;
+  height: 18px;
+  transition: filter 0.3s;
+  filter: invert(21%) sepia(14%) saturate(597%) hue-rotate(155deg) brightness(91%) contrast(84%);
+}
+.wp-block-button.is-style-play-button-hd a:hover:after {
+  filter: invert(100%) sepia(5%) saturate(379%) hue-rotate(248deg) brightness(114%) contrast(100%);
+}
+
+/* SECTIONS and PAGES */
+/* OVERRIDES */
+
+/*# sourceMappingURL=theme.css.map */
